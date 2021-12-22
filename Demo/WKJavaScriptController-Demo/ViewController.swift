@@ -79,6 +79,7 @@ class ViewController: UIViewController {
             let htmlPath = Bundle.main.path(forResource: "index", ofType: "html")!
             let htmlString = try! String(contentsOfFile: htmlPath, encoding: .utf8)
             webView.prepareForJavaScriptController() // Call prepareForJavaScriptController before initializing WKWebView or loading page.
+            webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
             webView.loadHTMLString(htmlString, baseURL: Bundle.main.bundleURL)
         }
     }
